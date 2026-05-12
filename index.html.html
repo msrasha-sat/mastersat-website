@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ms. Rasha Ahmed — SAT English Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  :root {
+    --ink: #1d2b6b;
+    --ink-soft: #2c3e6b;
+    --ink-muted: #6b7896;
+    --paper: #ffffff;
+    --paper-warm: #f0f6fa;
+    --paper-deep: #e3eef5;
+    --accent: #0d7fc7;
+    --accent-deep: #1d2b6b;
+    --accent-green: #7cb342;
+    --accent-green-deep: #689f38;
+    --accent-lavender: #7c83b8;
+    --rule: #d9e3ee;
+    --display: 'Fraunces', Georgia, serif;
+    --sans: 'Inter Tight', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Paper grain texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.4;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(139, 119, 91, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(139, 119, 91, 0.04) 0%, transparent 50%);
+  }
+
+  /* === NAV === */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(244, 239, 230, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-mark {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+    font-variation-settings: "opsz" 14, "SOFT" 30;
+  }
+
+  .nav-mark span {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-links a:hover { color: var(--accent-green-deep); }
+
+  .nav-cta {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.65rem 1.25rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--accent-green-deep) !important; }
+
+  /* === HERO === */
+  .hero {
+    min-height: 100vh;
+    padding: 9rem 3rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.1s forwards;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--accent-green);
+  }
+
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 350;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 2rem;
+    font-variation-settings: "opsz" 144, "SOFT" 20;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.25s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent-green-deep);
+    font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 1;
+  }
+
+  .hero-sub {
+    font-size: 1.125rem;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.4s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.55s forwards;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 1rem 1.75rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-green-deep);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary svg {
+    transition: transform 0.25s;
+  }
+
+  .btn-primary:hover svg { transform: translateX(3px); }
+
+  .btn-text {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid var(--ink);
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .btn-text:hover { color: var(--accent-green-deep); border-color: var(--accent-green-deep); }
+
+  /* Hero right panel */
+  .hero-card {
+    position: relative;
+    aspect-ratio: 4/5;
+    max-width: 460px;
+    margin-left: auto;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s forwards;
+  }
+
+  .hero-card-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hero-card-bg::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: 8px;
+    bottom: 8px;
+    border: 1px solid var(--accent-green-deep);
+    z-index: -1;
+  }
+
+  .hero-card-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hero-card-stat {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--accent-green-deep);
+    font-variation-settings: "opsz" 144;
+  }
+
+  .hero-card-stat sup {
+    font-size: 1.5rem;
+    color: var(--ink);
+    vertical-align: top;
+    margin-left: 0.25rem;
+  }
+
+  .hero-card-desc {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    line-height: 1.35;
+    color: var(--ink);
+    font-style: italic;
+    font-weight: 350;
+  }
+
+  .hero-card-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .meta-item-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  .meta-item-value {
+    font-family: var(--display);
+    font-size: 1rem;
+    color: var(--ink);
+  }
+
+  /* === MARQUEE / CREDENTIALS RIBBON === */
+  .ribbon {
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.25rem 0;
+    overflow: hidden;
+    background: var(--paper-warm);
+    position: relative;
+    z-index: 2;
+  }
+
+  .ribbon-track {
+    display: flex;
+    gap: 3rem;
+    animation: marquee 40s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+
+  .ribbon-item {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .ribbon-item::after {
+    content: '✦';
+    color: var(--accent-green);
+    font-style: normal;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* === SECTIONS === */
+  section {
+    padding: 7rem 3rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '§';
+    color: var(--accent-green-deep);
+    font-family: var(--display);
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--display);
+    font-weight: 350;
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+    font-variation-settings: "opsz" 100, "SOFT" 20;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--accent-green-deep);
+    font-variation-settings: "opsz" 100, "SOFT" 50, "WONK" 1;
+  }
+
+  /* === ABOUT === */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-left {
+    position: sticky;
+    top: 7rem;
+  }
+
+  .credentials {
+    list-style: none;
+    border-top: 1px solid var(--rule);
+  }
+
+  .credentials li {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: baseline;
+    transition: padding-left 0.3s;
+  }
+
+  .credentials li:hover { padding-left: 0.5rem; }
+
+  .cred-num {
+    font-family: var(--mono);
+    color: var(--ink-muted);
+    font-size: 0.75rem;
+  }
+
+  .cred-body strong {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .cred-body span {
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+  }
+
+  .about-prose p {
+    font-family: var(--display);
+    font-size: 1.35rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    font-weight: 350;
+  }
+
+  .about-prose p:first-child::first-letter {
+    font-family: var(--display);
+    font-size: 4.5rem;
+    float: left;
+    line-height: 0.85;
+    padding: 0.3rem 0.8rem 0 0;
+    color: var(--accent-green-deep);
+    font-weight: 400;
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "WONK" 1;
+  }
+
+  /* === COURSE === */
+  .course {
+    background: var(--paper-warm);
+    margin: 0 -3rem;
+    padding: 7rem 3rem;
+  }
+
+  .course-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .course-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 2.5rem;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+
+  .card-num {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 3.5rem;
+    color: var(--accent-green-deep);
+    line-height: 1;
+    margin-bottom: 2rem;
+    font-variation-settings: "opsz" 144, "WONK" 1;
+  }
+
+  .course-card h3 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .course-card p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-meta {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* === STRUCTURE === */
+  .structure {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .timeline {
+    border-left: 1px solid var(--rule);
+    padding-left: 0;
+    margin-left: 1rem;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 0 2.5rem 2.5rem;
+    border-left: 1px solid var(--rule);
+    margin-left: -1px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0.4rem;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1.5px solid var(--accent);
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-phase {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent-green-deep);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-title {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-desc {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  /* === MATERIALS === */
+  .materials {
+    background: var(--ink);
+    color: var(--paper);
+    margin: 0 -3rem;
+    padding: 7rem 3rem;
+  }
+
+  .materials .section-label { color: rgba(244,239,230,0.6); }
+  .materials .section-label::before { color: #4dd4a5; }
+  .materials .section-title { color: var(--paper); }
+  .materials .section-title em { color: #4dd4a5; }
+
+  .materials-lead {
+    font-family: var(--display);
+    font-size: 1.35rem;
+    line-height: 1.5;
+    color: rgba(244,239,230,0.75);
+    max-width: 700px;
+    margin-bottom: 4rem;
+    font-weight: 300;
+  }
+
+  .materials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(244,239,230,0.15);
+    border: 1px solid rgba(244,239,230,0.15);
+  }
+
+  .material-item {
+    background: var(--ink);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: background 0.2s;
+  }
+
+  .material-item:hover { background: #252220; }
+
+  .material-name {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .material-desc {
+    color: rgba(244,239,230,0.6);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* === TESTIMONIAL === */
+  .testimonial {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .quote-mark {
+    font-family: var(--display);
+    font-size: 8rem;
+    color: var(--accent-green-deep);
+    line-height: 0.7;
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "WONK" 1;
+  }
+
+  .quote-text {
+    font-family: var(--display);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.35;
+    color: var(--ink);
+    margin: 2rem 0 2.5rem;
+    font-weight: 350;
+    font-style: italic;
+  }
+
+  .quote-attr {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* === CTA === */
+  .cta {
+    text-align: center;
+    padding: 8rem 3rem;
+    position: relative;
+  }
+
+  .cta-pretitle {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent-green-deep);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-title {
+    font-family: var(--display);
+    font-weight: 350;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    font-variation-settings: "opsz" 144, "SOFT" 20;
+  }
+
+  .cta-title em {
+    font-style: italic;
+    color: var(--accent-green-deep);
+    font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 1;
+  }
+
+  .cta-sub {
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    max-width: 540px;
+    margin: 0 auto 2.5rem;
+  }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--paper-deep);
+    padding: 4rem 3rem 2rem;
+    border-top: 1px solid var(--rule);
+    position: relative;
+    z-index: 2;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-brand span {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .footer-tag {
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+    max-width: 280px;
+  }
+
+  .footer-col h4 {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+  }
+
+  .footer-col li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-col a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--accent-green-deep); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* === ICONS === */
+  .icon-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(124, 179, 66, 0.12);
+    border: 1px solid rgba(124, 179, 66, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--accent-green-deep);
+  }
+
+  .icon-circle.blue { color: var(--accent); background: rgba(13, 127, 199, 0.1); border-color: rgba(13, 127, 199, 0.25); }
+  .icon-circle.lavender { color: var(--accent-lavender); background: rgba(124, 131, 184, 0.12); border-color: rgba(124, 131, 184, 0.3); }
+
+  .icon-circle svg { width: 24px; height: 24px; stroke-width: 1.5; }
+
+  .material-icon {
+    color: #4dd4a5;
+    margin-bottom: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(77, 212, 165, 0.12);
+  }
+
+  .material-icon svg { width: 18px; height: 18px; stroke-width: 1.75; }
+
+  .credentials-icon {
+    color: var(--accent-green-deep);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(124, 179, 66, 0.12);
+    flex-shrink: 0;
+  }
+
+  .credentials-icon.blue {
+    color: var(--accent);
+    background: rgba(13, 127, 199, 0.1);
+  }
+
+  .credentials-icon svg { width: 16px; height: 16px; stroke-width: 2; }
+
+  .credentials li {
+    grid-template-columns: auto auto 1fr !important;
+  }
+
+  .ribbon-item-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .ribbon-item-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
+    color: var(--accent);
+  }
+
+  .timeline-item-icon {
+    position: absolute;
+    left: -14px;
+    top: -4px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1.5px solid var(--accent-green-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-green-deep);
+  }
+
+  .timeline-item-icon.blue {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .timeline-item-icon svg { width: 14px; height: 14px; stroke-width: 2; }
+
+  .timeline-item::before { display: none; }
+
+  .nav-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .nav-icon svg {
+    width: 14px;
+    height: 14px;
+    stroke-width: 2;
+  }
+
+  /* === FLOATING WHATSAPP BUTTON === */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: #25D366;
+    color: white;
+    width: auto;
+    padding: 0.85rem 1.25rem 0.85rem 1rem;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+    z-index: 999;
+    transition: all 0.25s;
+  }
+
+  .whatsapp-float:hover {
+    background: #1faa50;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5);
+  }
+
+  .whatsapp-float svg {
+    width: 22px;
+    height: 22px;
+    fill: white;
+  }
+
+  .whatsapp-float .wa-label {
+    display: inline-block;
+  }
+
+  @media (max-width: 600px) {
+    .whatsapp-float .wa-label { display: none; }
+    .whatsapp-float { padding: 0.85rem; }
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.25rem; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    section { padding: 5rem 1.5rem; }
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 7rem 1.5rem 3rem;
+      gap: 3rem;
+    }
+    .hero-card { margin: 0 auto; }
+    .about, .structure {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .about-left { position: static; }
+    .course, .materials { margin: 0 -1.5rem; padding: 5rem 1.5rem; }
+    .course-grid { grid-template-columns: 1fr; }
+    .materials-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-mark">Ms. Rasha <span>Ahmed</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#course">Course</a></li>
+    <li><a href="#structure">Structure</a></li>
+    <li><a href="#materials">Materials</a></li>
+    <li><a href="#enroll" class="nav-cta">Enroll →</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">SAT English · 2026 Course</div>
+    <h1>Master the SAT Reading & Writing section with <em>real strategy.</em></h1>
+    <p class="hero-sub">An 18-session prep course taught by an experienced SAT instructor with fourteen years in the classroom. Small groups. Official College Board materials. Measurable results.</p>
+    <div class="hero-actions">
+      <a href="#enroll" class="btn-primary">
+        Join the prep course
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L7 1m6 6L7 13" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+      <a href="#course" class="btn-text">See the syllabus</a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <div class="hero-card-bg">
+      <div class="hero-card-label">
+        <span>Course Brief</span>
+        <span>№ 01</span>
+      </div>
+      <div>
+        <div class="hero-card-stat">18<sup>sessions</sup></div>
+        <p class="hero-card-desc">A woven reading-writing sequence built on the College Board's own Assessment Framework.</p>
+      </div>
+      <div class="hero-card-meta">
+        <div>
+          <div class="meta-item-label">Duration</div>
+          <div class="meta-item-value">120 min × 3/wk</div>
+        </div>
+        <div>
+          <div class="meta-item-label">Format</div>
+          <div class="meta-item-value">Live + Portal</div>
+        </div>
+        <div>
+          <div class="meta-item-label">Group</div>
+          <div class="meta-item-value">Small group</div>
+        </div>
+        <div>
+          <div class="meta-item-label">Starts</div>
+          <div class="meta-item-value">Rolling</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ribbon">
+  <div class="ribbon-track">
+    <div class="ribbon-item">Foundation Course</div>
+    <div class="ribbon-item">Advanced Course</div>
+    <div class="ribbon-item">Scholarship Requirements</div>
+    <div class="ribbon-item">Vocabulary Enrichment</div>
+    <div class="ribbon-item">Foundation Course</div>
+    <div class="ribbon-item">Advanced Course</div>
+    <div class="ribbon-item">Scholarship Requirements</div>
+    <div class="ribbon-item">Vocabulary Enrichment</div>
+    <div class="ribbon-item">Foundation Course</div>
+    <div class="ribbon-item">Advanced Course</div>
+    <div class="ribbon-item">Scholarship Requirements</div>
+    <div class="ribbon-item">Vocabulary Enrichment</div>
+  </div>
+</div>
+
+<section id="about" class="reveal">
+  <div class="about">
+    <div class="about-left">
+      <div class="section-label">About the Instructor</div>
+      <h2 class="section-title">A specialist's <em>approach</em> to a specialist's exam.</h2>
+      <ul class="credentials">
+        <li>
+          <span class="credentials-icon"><i data-lucide="award"></i></span>
+          <span class="cred-num">01</span>
+          <div class="cred-body">
+            <strong>SAT Prep Experience</strong>
+            <span>Years of dedicated experience preparing students for the digital SAT English section</span>
+          </div>
+        </li>
+        <li>
+          <span class="credentials-icon blue"><i data-lucide="graduation-cap"></i></span>
+          <span class="cred-num">02</span>
+          <div class="cred-body">
+            <strong>MA Applied Linguistics & TESOL</strong>
+            <span>In progress — specialization in language assessment</span>
+          </div>
+        </li>
+        <li>
+          <span class="credentials-icon"><i data-lucide="briefcase"></i></span>
+          <span class="cred-num">03</span>
+          <div class="cred-body">
+            <strong>English Supervisor</strong>
+            <span>Curriculum and instructional design for school programs</span>
+          </div>
+        </li>
+        <li>
+          <span class="credentials-icon blue"><i data-lucide="clock"></i></span>
+          <span class="cred-num">04</span>
+          <div class="cred-body">
+            <strong>14+ Years in the Classroom</strong>
+            <span>Direct instruction across levels, ages, and exam contexts</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="about-prose">
+      <p>The SAT Reading & Writing section is not a vocabulary test, and it isn't won by drilling random questions. It rewards a specific kind of literacy — one built from grammar that actually makes sense to you, rhetorical patterns you can name on sight, and reading habits trained for short, dense passages under time pressure.</p>
+      <p>This course is built around that reality. The sequence begins with clauses and complete sentences, then layers in punctuation, transitions, evidence questions, and rhetorical synthesis in a deliberate order — each session opens with what the previous one closed.</p>
+      <p>Every lesson uses only official College Board sources: Bluebook, the Question Bank, Khan Academy, released paper tests, and the Assessment Framework. No imitations. No worksheets pulled from the wrong test.</p>
+    </div>
+  </div>
+</section>
+
+<section id="course" class="course reveal">
+  <div class="section-label">The Course</div>
+  <h2 class="section-title">Three tiers of practice, <em>woven together.</em></h2>
+  <p style="max-width: 640px; font-size: 1.05rem; color: var(--ink-soft);">Homework isn't an afterthought — it's the engine of the course. Each tier serves a different purpose, and together they convert classroom understanding into test-day fluency.</p>
+
+  <div class="course-grid">
+    <div class="course-card">
+      <div class="icon-circle"><i data-lucide="target"></i></div>
+      <div class="card-num">i.</div>
+      <h3>Topic Practice</h3>
+      <p>Concentrated drills on the specific skill from each session — punctuation, subject-verb agreement, evidence selection — so the technique consolidates before it fades.</p>
+      <div class="card-meta">After every session</div>
+    </div>
+    <div class="course-card">
+      <div class="icon-circle lavender"><i data-lucide="layers"></i></div>
+      <div class="card-num">ii.</div>
+      <h3>Cumulative Review</h3>
+      <p>Mixed problem sets that interleave new material with everything covered so far. Builds the recall and pattern-recognition the real test demands.</p>
+      <div class="card-meta">Weekly</div>
+    </div>
+    <div class="course-card">
+      <div class="icon-circle blue"><i data-lucide="check-circle-2"></i></div>
+      <div class="card-num">iii.</div>
+      <h3>Test Prep Checkpoints</h3>
+      <p>Timed sections under exam conditions. A diagnostic at session one, a targeted checkpoint mid-course, and a full Bluebook adaptive test at session eighteen.</p>
+      <div class="card-meta">Three milestones</div>
+    </div>
+  </div>
+</section>
+
+<section id="structure" class="reveal">
+  <div class="structure">
+    <div>
+      <div class="section-label">Course Architecture</div>
+      <h2 class="section-title">A sequence that <em>compounds.</em></h2>
+      <p style="color: var(--ink-soft); font-size: 1rem; line-height: 1.6;">Most prep courses dump topics in textbook order. This one moves in the order students actually need them — building blocks first, synthesis last.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-item-icon"><i data-lucide="flag"></i></div>
+        <div class="timeline-phase">Phase 01 · Sessions 1–4</div>
+        <h4 class="timeline-title">Foundations</h4>
+        <p class="timeline-desc">Diagnostic Bluebook test. Clauses, complete sentences, the structural grammar that underlies every Writing question.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-item-icon"><i data-lucide="pen-tool"></i></div>
+        <div class="timeline-phase">Phase 02 · Sessions 5–9</div>
+        <h4 class="timeline-title">Standard English Conventions</h4>
+        <p class="timeline-desc">Punctuation in earnest — semicolons, colons, dashes, commas — alongside agreement, modifiers, and verb forms.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-item-icon"><i data-lucide="lightbulb"></i></div>
+        <div class="timeline-phase">Phase 03 · Sessions 10–13</div>
+        <h4 class="timeline-title">Expression of Ideas</h4>
+        <p class="timeline-desc">Transitions, rhetorical synthesis, and the writing-purpose questions. Checkpoint quiz on full Writing skillset.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-item-icon"><i data-lucide="book-open"></i></div>
+        <div class="timeline-phase">Phase 04 · Sessions 14–17</div>
+        <h4 class="timeline-title">Reading & Information</h4>
+        <p class="timeline-desc">Command of evidence, cross-text connections, central ideas, vocabulary in context. Reading and writing become one toolkit.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-item-icon"><i data-lucide="trophy"></i></div>
+        <div class="timeline-phase">Phase 05 · Session 18</div>
+        <h4 class="timeline-title">Full Practice Test</h4>
+        <p class="timeline-desc">Final Bluebook adaptive test with detailed score review and a personalized push-plan for test day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="materials" class="materials reveal">
+  <div class="section-label">Materials</div>
+  <h2 class="section-title">Only the <em>real thing.</em></h2>
+  <p class="materials-lead">Every question, passage, and practice test in this course comes from the College Board itself. No mock content, no recycled prep-company knockoffs — because the SAT rewards familiarity with the actual exam, not someone's interpretation of it.</p>
+
+  <div class="materials-grid">
+    <div class="material-item">
+      <div class="material-icon"><i data-lucide="laptop"></i></div>
+      <div class="material-name">Bluebook App</div>
+      <p class="material-desc">The official digital SAT testing platform — used for the diagnostic and final practice test under real adaptive conditions.</p>
+    </div>
+    <div class="material-item">
+      <div class="material-icon"><i data-lucide="database"></i></div>
+      <div class="material-name">SAT Suite Question Bank</div>
+      <p class="material-desc">Topic-tagged official questions for targeted practice on specific skills and difficulty levels.</p>
+    </div>
+    <div class="material-item">
+      <div class="material-icon"><i data-lucide="play-circle"></i></div>
+      <div class="material-name">Khan Academy Official Prep</div>
+      <p class="material-desc">Assigned strategically as between-session reinforcement and concept review.</p>
+    </div>
+    <div class="material-item">
+      <div class="material-icon"><i data-lucide="file-text"></i></div>
+      <div class="material-name">Released Paper Tests</div>
+      <p class="material-desc">For cumulative review sets and section practice — graded and reviewed in class.</p>
+    </div>
+    <div class="material-item">
+      <div class="material-icon"><i data-lucide="book-open"></i></div>
+      <div class="material-name">Assessment Framework</div>
+      <p class="material-desc">The College Board's own specifications document — the master map this course is built from.</p>
+    </div>
+    <div class="material-item">
+      <div class="material-icon"><i data-lucide="monitor"></i></div>
+      <div class="material-name">Course Portal</div>
+      <p class="material-desc">Session recordings, downloadable materials, in-portal homework with scoring, and an announcements feed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="testimonial">
+    <div class="quote-mark">"</div>
+    <p class="quote-text">A teacher's job is to make the path shorter than the student expected — not by skipping the work, but by ordering it so the next step always feels possible.</p>
+    <div class="quote-attr">— Ms. Rasha Ahmed</div>
+  </div>
+</section>
+
+<section id="enroll" class="cta reveal">
+  <div class="cta-pretitle">Now Enrolling — Prep Course</div>
+  <h2 class="cta-title">Reserve a seat in the <em>2026 course.</em></h2>
+  <p class="cta-sub">Small group instruction. Sessions begin once the prep course is filled. Reach out for a placement consultation and the full session calendar.</p>
+  <div class="hero-actions" style="justify-content: center;">
+    <a href="https://wa.me/966596201785?text=Hi%20Ms.%20Rasha%2C%20I%27d%20like%20to%20register%20for%20the%20SAT%20English%20prep%20course.%20Could%20you%20share%20enrollment%20details%20and%20the%20full%20schedule%3F" class="btn-primary" target="_blank" rel="noopener">
+      Register via WhatsApp
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L7 1m6 6L7 13" stroke="currentColor" stroke-width="1.5"/></svg>
+    </a>
+    <a href="https://wa.me/966596201785?text=Hi%20Ms.%20Rasha%2C%20I%20have%20a%20question%20about%20the%20SAT%20prep%20course." class="btn-text" target="_blank" rel="noopener">Ask a question</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Ms. Rasha <span>Ahmed</span></div>
+      <p class="footer-tag">SAT English instruction & independent tutoring with Ms. Rasha Ahmed.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Course</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#course">Syllabus</a></li>
+        <li><a href="#structure">Structure</a></li>
+        <li><a href="#materials">Materials</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="https://wa.me/966596201785?text=Hi%20Ms.%20Rasha%2C%20I%27d%20like%20to%20learn%20more%20about%20the%20SAT%20prep%20course." target="_blank" rel="noopener">WhatsApp (Saudi Arabia)</a></li>
+        <li><a href="https://wa.me/201210516143?text=Hi%20Ms.%20Rasha%2C%20I%27d%20like%20to%20learn%20more%20about%20the%20SAT%20prep%20course." target="_blank" rel="noopener">WhatsApp (Egypt)</a></li>
+        <li><a href="#">Telegram</a></li>
+        <li><a href="mailto:hello@example.com">Email</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#">Student Portal</a></li>
+        <li><a href="#">Parent Flyer (PDF)</a></li>
+        <li><a href="#">Placement Form</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Ms. Rasha Ahmed</span>
+    <span>Master SAT: English Section</span>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp button -->
+<a href="https://wa.me/966596201785?text=Hi%20Ms.%20Rasha%2C%20I%27d%20like%20to%20learn%20more%20about%20the%20SAT%20prep%20course." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contact via WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345m-5.446 7.443h-.016c-1.77 0-3.524-.48-5.055-1.38l-.36-.214-3.75.975 1.005-3.645-.239-.375a9.869 9.869 0 0 1-1.516-5.26c.002-5.45 4.437-9.884 9.896-9.884 2.641 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a12.062 12.062 0 0 0 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411"/>
+  </svg>
+  <span class="wa-label">Chat on WhatsApp</span>
+</a>
+
+<script>
+  // Initialize Lucide icons
+  lucide.createIcons();
+
+  // Reveal-on-scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
